@@ -7,13 +7,65 @@
     font: 16px Roboto;
     transition: all .4s ease;
 }
+body[theme="dark"] {
+    --cl1: #000000;
+    --cl2: #212121;
+    --cl3: #ffffff;
+    --cl4: #484848;
+    --cl5: #5a9216;
+    --cl6: #ba000d;
+    --cl7: #000000;
+    --cl8: #212121;
+    --cl9: #484848;
+}
+body[theme="light"] {
+    --cl1: #eeeeee;
+    --cl2: #bcbcbc;
+    --cl3: #000000;
+    --cl4: #aeaeae;
+    --cl5: #bef67a;
+    --cl6: #ff7961;
+    --cl7: #ffffff;
+    --cl8: #eeeeee;
+    --cl9: #bcbcbc;
+}
 body {
-    background: #181818;
+    background: var(--cl1);
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
     /*! width: 100vw; */
     /*! height: 100vh; */
-    color: #ffffff;
+    color: var(--cl3);
+}
+.md-btn {
+    border: none;
+    border-radius: 8px;
+    background: var(--cl7);
+    color: var(--cl3);
+    font-size: 18px;
+    padding: 4px;
+}
+.md-btn:hover {
+    background-color: var(--cl8);
+}
+.md-btn:active {
+    background-color: var(--cl9);
+}
+#testTitle {
+    display: flex;
+    padding: 8px;
+    font-size: 18px;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+#testTitle > p {
+    font-size: 18px;
+    color: var(--cl3);
+    flex: 1;
+}
+#testTitle > .md-btn {
+    /*  */
+    font-size: 24px;
 }
 tests {
     display: flex;
@@ -26,7 +78,7 @@ test {
     flex-flow: column nowrap;
     /*! padding: 8px; */
     margin-bottom: 8px;
-    background: #242424;
+    background: var(--cl2);
     border-radius: 8px;
 }
 test question {
@@ -40,6 +92,8 @@ test answers {
     flex-flow: column wrap;
     flex: 3;
     margin-bottom: 8px;
+    border-top: 1px solid var(--cl4);
+    border-bottom: 1px solid var(--cl4);
 }
 test answers answer {
     display: flex;
@@ -53,10 +107,10 @@ test answers answer {
     padding: 4px;
 }
 test answers answer input:checked[right] +label::before {
-    background: #00b900;
+    background: var(--cl5);
 }
 test answers answer input:checked[wrong] +label::before {
-    background: #b90000;
+    background: var(--cl6);
 }
 test answers answer input {
     margin: 0 9px 0 4px;
@@ -71,7 +125,7 @@ test answers answer label::before {
     bottom: 0;
     /*! border-radius: 4px; */
     z-index: -1;
-    opacity: .2;
+    /*! opacity: .2; */
     background: #ffffff00;
 }
 test answers answer label {

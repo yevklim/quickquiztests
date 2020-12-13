@@ -1,3 +1,9 @@
+let theme = 0,
+    themes = [
+        "dark",
+        "light"
+    ];
+
 $(() => {
     let $tests = $("tests");
     for (let i = 0; i < tests.length; i++) {
@@ -21,3 +27,8 @@ $(() => {
     </test>`);
     }
 });
+
+function changeTheme() {
+    theme = theme == 0 ? 1 : 0;
+    $("body").attr("theme",  themes[theme])
+}
